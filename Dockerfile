@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 
 RUN apt-get update && apt-get -y upgrade && \
     apt-get install --no-install-recommends -y \
+    build-essential \
     git && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
