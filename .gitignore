@@ -142,11 +142,12 @@ z
 *.jpeg
 *.png
 *.parquet
+*.parquet.orig
 *.csv
 *.txt
 
 # for auto-downloads of unpublished data
-internal_urls.py  
+internal_urls.py
 
 # candels table with urls
 hidden_data/*
