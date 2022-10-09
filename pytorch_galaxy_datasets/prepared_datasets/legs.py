@@ -10,7 +10,7 @@ from zoobot.shared import label_metadata
 
 
 class LegsDataset(galaxy_dataset.GalaxyDataset):
-    
+
     # based on https://pytorch.org/vision/stable/generated/torchvision.datasets.STL10.html
     def __init__(self, root=None, split='train', download=False, transform=None, target_transform=None, train=None):
         # train=None is just an exception-raising parameter to avoid confused users using the train=False api
@@ -64,12 +64,14 @@ def legs_setup(root=None, split='train', download=False, train=None):
         (internal_urls.legs_chunk_07, '583d92b917bd70670d7860e3836cb4a4')
     )
 
-    if os.path.isdir('/share/nas2'):
-        # hardcoded_catalog_root = '/share/nas2/walml/repos/gz-decals-classifiers/data/decals/presplit_catalogs'
-        pass
-    else:
-        hardcoded_catalog_root = '/home/walml/repos/pytorch-galaxy-datasets/roots/legs'  # catalogs only
-        root = hardcoded_catalog_root
+    # BAD Mike - don't override my arg to the public API!
+    # if os.path.isdir('/share/nas2'):
+    #     # hardcoded_catalog_root = '/share/nas2/walml/repos/gz-decals-classifiers/data/decals/presplit_catalogs'
+    #     pass
+    # else:
+    #     hardcoded_catalog_root = '/home/walml/repos/pytorch-galaxy-datasets/roots/legs'  # catalogs only
+    #     root = hardcoded_catalog_root
+
     downloader = download_utils.DatasetDownloader(root, resources, images_to_spotcheck=['338503/338503_3840.jpg'], image_dirname='')
     if download is True:
         logging.warning('Only downloading catalogs - images are too large to download')
@@ -133,4 +135,4 @@ if __name__ == '__main__':
     for images, labels in datamodule.train_dataloader():
         print(images.shape, labels.shape)
         break
-        
+
