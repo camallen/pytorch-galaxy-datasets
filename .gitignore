@@ -152,4 +152,5 @@ internal_urls.py
 # candels table with urls
 hidden_data/*
 
+# ignore the annoying mac finder metadata file
 *.DS_Store
