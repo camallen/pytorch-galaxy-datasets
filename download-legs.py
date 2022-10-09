@@ -1,6 +1,8 @@
 from pytorch_galaxy_datasets.prepared_datasets import legs
 import os
-import pdb
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 # first download is basically just a convenient way to get the images and canonical catalogs
 catalog, label_cols = legs.legs_setup(
